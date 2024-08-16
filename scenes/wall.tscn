@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv3rvjka57xc1"]
+[gd_scene load_steps=3 format=3 uid="uid://d0244705cky8d"]
 
 [ext_resource type="Texture2D" uid="uid://b7eklow4kuoga" path="res://assets/bocks.png" id="1_rnvi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dkqs"]
-size = Vector2(1183, 63)
+size = Vector2(1183.5, 63.5)
 
 [node name="Wall" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, -0.25)
 shape = SubResource("RectangleShape2D_1dkqs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
