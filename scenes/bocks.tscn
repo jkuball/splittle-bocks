@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkum4ouevjlwg"]
+
+[ext_resource type="Texture2D" uid="uid://b7eklow4kuoga" path="res://assets/bocks.png" id="1_aun37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5db8f"]
+size = Vector2(64, 64)
+
+[node name="Bocks" type="RigidBody2D"]
+
+[node name="Bocks" type="Sprite2D" parent="."]
+texture = ExtResource("1_aun37")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5db8f")
