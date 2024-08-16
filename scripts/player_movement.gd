@@ -9,6 +9,7 @@ signal splittle(scale)
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var bocksScale = 1.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -19,6 +20,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("player_splittle"):
 		var bocks = Bocks.instantiate()
 		spawn_target.add_child(bocks)
+		
+		## Prototype bocks scaling ##
+		bocks.get_child(0).apply_scale(Vector2(bocksScale,bocksScale))
+		bocksScale = bocksScale/2
+		bocks.set_global_position(get_global_position())
+		## /Prototype bocks scaling/ ##
+		
 		apply_scale(Vector2(0.5,0.5))
 		splittle.emit(Vector2(2, 2))
 		

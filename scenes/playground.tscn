@@ -10,7 +10,7 @@ position = Vector2(184, 455)
 spawn_target = NodePath("..")
 
 [node name="Wall" parent="." instance=ExtResource("3_2hrnh")]
-position = Vector2(573, 636)
+position = Vector2(570.485, 636)
 
 [node name="Wall2" parent="." instance=ExtResource("3_2hrnh")]
 position = Vector2(575, 192)
