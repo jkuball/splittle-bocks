@@ -2,15 +2,20 @@ extends Camera2D
 
 @export var follow_target: Node2D
 
-# Called when the node enters the scene tree for the first time.
+var wanted_zoom: Vector2;
+
 func _ready():
-	pass
+	wanted_zoom = zoom
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-#
 func _physics_process(delta):
+	# TODO: only move the camera if the player gets to the borders
+	
 	# lerp dat shit
 	transform.origin = lerp(transform.origin, follow_target.transform.origin, 0.2)
+	zoom = lerp(zoom, wanted_zoom, 0.2)
+ 
+func _on_player_splittle(scale):
+	if zoom == wanted_zoom:
+		wanted_zoom = zoom * scale
+	else:
+		wanted_zoom = wanted_zoom * scale

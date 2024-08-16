@@ -2,10 +2,30 @@
 
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_lmyi4"]
 [ext_resource type="Texture2D" uid="uid://cuoukr7d0jdaa" path="res://assets/player.png" id="2_affvc"]
-[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="3_rq0xi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qcak"]
 size = Vector2(128, 128)
+
+[sub_resource type="GDScript" id="GDScript_c0j85"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_player_splittle(scale: Vector2) -> void:
+	pass # Replace with function body.
+	set_zoom(get_zoom()*scale)
+
+	
+"
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lmyi4")
@@ -19,6 +39,6 @@ texture = ExtResource("2_affvc")
 shape = SubResource("RectangleShape2D_4qcak")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("3_rq0xi")
+script = SubResource("GDScript_c0j85")
 
 [connection signal="splittle" from="." to="Camera2D" method="_on_player_splittle"]
