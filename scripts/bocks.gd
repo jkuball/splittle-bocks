@@ -1,10 +1,17 @@
 extends Node2D
 
+const Pickup: PackedScene = preload("res://scenes/pickup.tscn")
+
 var decaying: bool = false
 
 const decay_seconds = 2
 
 signal decayed(bocks: Node2D)
+
+func spawn_pickup():
+	var pickup = Pickup.instantiate()
+	pickup.transform.origin = transform.origin
+	get_parent().add_child(pickup)
 
 func begin_decay():
 	if not decaying:
@@ -21,5 +28,6 @@ func begin_decay():
 		#tween.tween_callback(queue_free)
 		tween.finished.connect(queue_free)
 		tween.finished.connect(func lambda(): decayed.emit(self))
+		tween.finished.connect(spawn_pickup)
 		
 		decaying = true

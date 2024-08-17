@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var spawn_target: Node2D
-
+@export var bocksScale = 1.0
 @export var number_of_available_boxes = 0
 
 const TEXTURE_PIXEL_SIZE = 16
@@ -15,7 +15,7 @@ signal end(toggle: bool)
 
 const SPEED = 58000.0
 
-var bocksScale = 1.0
+
 const minBocksScale = 0.0625
 
 var look_right = true
@@ -27,9 +27,15 @@ var dead = false
 
 func _a_bocks_decayed(box: Node2D):
 	bocksScale *= 2
+
+func _picked_up():
+	number_of_available_boxes += 1
 	apply_scale(Vector2(2, 2))
 	splittle.emit(Vector2(.5, .5))
-	
+
+func _a_bocks_decayed(box: Node2D):
+	bocksScale *= 2
+
 	bocks_list.erase(box)
 	check_decay()
 	for bocks in bocks_list:
@@ -59,7 +65,7 @@ func reposition_preview():
 		bocks_preview.set_position(-Vector2(TEXTURE_PIXEL_SIZE*8,0))
 
 func _physics_process(delta: float) -> void:
-	
+
 	if dead:
 		if Input.is_action_just_released("respawn"):
 			var current_scene_file = get_tree().current_scene.scene_file_path
@@ -148,10 +154,10 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_platz_area_body_entered(body):
+func _on_platz_area_body_entered(body: Node2D):
 	if body is TileMapLayer:
 		die()
-		
+
 func die():
 	$CPUParticles2D.emitting = true
 	#print_debug("boom -- ich bin geplatzt! ", body)

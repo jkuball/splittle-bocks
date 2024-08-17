@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccicfing1r2rg" path="res://scenes/player.tscn" id="2_i11q5"]
 [ext_resource type="TileSet" uid="uid://buf3uaa5v4x1x" path="res://assets/tile_set_full.tres" id="3_0881b"]
 [ext_resource type="PackedScene" uid="uid://cu4gu0acf6dp1" path="res://scenes/goal.tscn" id="4_pcl5x"]
+[ext_resource type="PackedScene" uid="uid://bvow2qdtaojla" path="res://scenes/pickup.tscn" id="5_6bqss"]
 [ext_resource type="PackedScene" uid="uid://dfs4csrso2wcm" path="res://scenes/hud.tscn" id="5_nbs3j"]
 
 [node name="Node2D" type="Node2D"]
@@ -14,9 +15,10 @@ script = ExtResource("1_ncram")
 player = NodePath("../Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("spawn_target") instance=ExtResource("2_i11q5")]
-position = Vector2(558, 806)
+position = Vector2(-3146, 14)
+scale = Vector2(0.5, 0.5)
 spawn_target = NodePath("..")
-number_of_available_boxes = 1
+bocksScale = 0.5
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
@@ -33,4 +35,7 @@ color = Color(0.493545, 0.493546, 0.493546, 1)
 [node name="HUD" parent="." instance=ExtResource("5_nbs3j")]
 
 [connection signal="end" from="Player" to="HUD" method="_on_player_end"]
+
+[node name="Pickup" parent="." instance=ExtResource("5_6bqss")]
+position = Vector2(340, 849)
 [connection signal="splittle" from="Player" to="Camera2D" method="_on_player_splittle"]
