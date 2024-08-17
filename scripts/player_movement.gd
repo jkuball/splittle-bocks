@@ -41,13 +41,13 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("player_left", "player_right")
 	if direction:
-		look_right = direction > 0
 		if is_scale_bocks:
 			if look_right:
 				velocity.y = -direction * SPEED * bocksScale * delta
 			else:
 				velocity.y = direction * SPEED * bocksScale * delta
 		else:
+			look_right = direction > 0
 			velocity.x = direction * SPEED * bocksScale * delta
 	else:
 		if is_scale_bocks:
@@ -59,7 +59,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Bocks"):
-		print_debug("InGroup")
 		if not is_scale_bocks:
 			is_scale_bocks = true
 	pass # Replace with function body.
@@ -67,7 +66,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Bocks"):
-		print_debug("OutGroup")
 		if is_scale_bocks:
 			is_scale_bocks = false
 	pass # Replace with function body.
