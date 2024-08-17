@@ -25,22 +25,21 @@ var bocks_preview
 
 var dead = false
 
-func _a_bocks_decayed(box: Node2D):
-	bocksScale *= 2
 
 func _picked_up():
 	number_of_available_boxes += 1
 	apply_scale(Vector2(2, 2))
 	splittle.emit(Vector2(.5, .5))
 
+
 func _a_bocks_decayed(box: Node2D):
 	bocksScale *= 2
-
 	bocks_list.erase(box)
 	check_decay()
 	for bocks in bocks_list:
 		var rb: RigidBody2D = bocks.get_node("RigidBody")
 		rb.sleeping = false
+
 
 func check_decay():
 	bocks_list = bocks_list.filter(is_instance_valid) # remove freed boxes

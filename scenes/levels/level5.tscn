@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://00ecoyuyqh1s"]
+[gd_scene load_steps=6 format=4 uid="uid://00ecoyuyqh1s"]
 
 [ext_resource type="Script" path="res://scripts/follow_player.gd" id="1_16dsp"]
 [ext_resource type="PackedScene" uid="uid://c2wkhfsiwtuvv" path="res://scenes/player.tscn" id="2_tjba1"]
 [ext_resource type="TileSet" uid="uid://buf3uaa5v4x1x" path="res://assets/tile_set_full.tres" id="3_twpc5"]
 [ext_resource type="PackedScene" uid="uid://cu4gu0acf6dp1" path="res://scenes/goal.tscn" id="4_7g2h4"]
+[ext_resource type="PackedScene" uid="uid://bvow2qdtaojla" path="res://scenes/pickup.tscn" id="5_kks45"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,5 +28,11 @@ color = Color(0.493545, 0.493546, 0.493546, 1)
 
 [node name="Goal" parent="." instance=ExtResource("4_7g2h4")]
 position = Vector2(1857, 576)
+
+[node name="Pickup" parent="." instance=ExtResource("5_kks45")]
+position = Vector2(1180, 271)
+
+[node name="Pickup3" parent="." instance=ExtResource("5_kks45")]
+position = Vector2(915, 280)
 
 [connection signal="splittle" from="Player" to="Camera2D" method="_on_player_splittle"]

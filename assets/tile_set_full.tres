@@ -47,5 +47,5 @@ texture = ExtResource("1_uyg4u")
 
 [resource]
 uv_clipping = true
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
 sources/3 = SubResource("TileSetAtlasSource_jloub")
