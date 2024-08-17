@@ -23,6 +23,7 @@ tile_set = ExtResource("3_0881b")
 
 [node name="Goal" parent="." instance=ExtResource("4_pcl5x")]
 position = Vector2(1472, 832)
+rotation = -6.28319
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.493545, 0.493546, 0.493546, 1)

@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://buf3uaa5v4x1x" path="res://assets/tile_set_full.tres" id="3_3ycej"]
 [ext_resource type="PackedScene" uid="uid://dk60gs2hajwx7" path="res://scenes/pressure_plate.tscn" id="4_0lwj4"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D3" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(964, 343)
@@ -24,6 +24,7 @@ tile_set = ExtResource("3_3ycej")
 
 [node name="Pressure_Plate" parent="." instance=ExtResource("4_0lwj4")]
 position = Vector2(960, 704)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.493545, 0.493546, 0.493546, 1)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2wkhfsiwtuvv"]
+[gd_scene load_steps=15 format=3 uid="uid://ccicfing1r2rg"]
 
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_lmyi4"]
 [ext_resource type="Texture2D" uid="uid://du1acm5ck1sba" path="res://assets/player/player_idle.png" id="2_4td5n"]
@@ -25,8 +25,8 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qcak"]
-size = Vector2(126, 119)
+[sub_resource type="CircleShape2D" id="CircleShape2D_qv4lq"]
+radius = 59.2558
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1xa1c"]
 a = Vector2(66, -24)
@@ -91,7 +91,7 @@ frame_progress = 0.0705651
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.5)
-shape = SubResource("RectangleShape2D_4qcak")
+shape = SubResource("CircleShape2D_qv4lq")
 
 [node name="Area2D" type="Area2D" parent="."]
 
