@@ -15,6 +15,19 @@ var look_right = true
 
 var is_scale_bocks = false
 
+var bocks_list: Array[Node2D] = []
+func make_bocks() -> Node2D:
+	var bocks = Bocks.instantiate()
+	spawn_target.add_child(bocks)
+	
+	bocks_list = bocks_list.filter(is_instance_valid) # remove freed boxes
+	for bock in bocks_list:
+		# mark them as "not the newest" box
+		bock.begin_decay()
+
+	bocks_list.append(bocks)
+	return bocks
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if (not is_on_floor()) and (not is_scale_bocks):
@@ -22,8 +35,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle box spawning.
 	if bocksScale > minBocksScale and Input.is_action_just_pressed("player_splittle"):
-		var bocks = Bocks.instantiate()
-		spawn_target.add_child(bocks)
+		var bocks = make_bocks()
 
 		## Prototype bocks scaling ##
 		bocks.find_child("Collider").apply_scale(Vector2(bocksScale,bocksScale))
