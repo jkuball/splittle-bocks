@@ -11,6 +11,8 @@ const Bocks_Preview: PackedScene = preload("res://scenes/bocks_preview.tscn")
 
 signal splittle(scale: Vector2)
 
+signal end(toggle: bool)
+
 const SPEED = 58000.0
 
 var bocksScale = 1.0
@@ -20,6 +22,8 @@ var look_right = true
 
 var is_scale_bocks = false
 var bocks_preview
+
+var dead = false
 
 func _a_bocks_decayed(box: Node2D):
 	bocksScale *= 2
@@ -55,6 +59,14 @@ func reposition_preview():
 		bocks_preview.set_position(-Vector2(TEXTURE_PIXEL_SIZE*8,0))
 
 func _physics_process(delta: float) -> void:
+	
+	if dead:
+		if Input.is_action_just_released("respawn"):
+			var current_scene_file = get_tree().current_scene.scene_file_path
+			var same_level_number = current_scene_file.to_int()
+			var same_level_path = "res://scenes/levels/level"+str(same_level_number)+".tscn"
+			get_tree().change_scene_to_file(same_level_path)
+		return
 	# Add the gravity.
 	if (not is_on_floor()) and (not is_scale_bocks):
 		velocity += get_gravity() * delta
@@ -138,4 +150,11 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _on_platz_area_body_entered(body):
 	if body is TileMapLayer:
-		print_debug("boom -- ich bin geplatzt! ", body)
+		die()
+		
+func die():
+	$CPUParticles2D.emitting = true
+	#print_debug("boom -- ich bin geplatzt! ", body)
+	$AnimatedSprite2D.visible = false
+	end.emit(true)
+	dead = true
