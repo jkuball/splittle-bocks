@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2wkhfsiwtuvv"]
+[gd_scene load_steps=6 format=3 uid="uid://ccicfing1r2rg"]
 
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_lmyi4"]
 [ext_resource type="Texture2D" uid="uid://cuoukr7d0jdaa" path="res://assets/player.png" id="2_affvc"]
@@ -27,6 +27,10 @@ func _on_player_splittle(scale: Vector2) -> void:
 	
 "
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1xa1c"]
+a = Vector2(66, -64)
+b = Vector2(66, 64)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lmyi4")
 
@@ -41,4 +45,15 @@ shape = SubResource("RectangleShape2D_4qcak")
 [node name="Camera2D" type="Camera2D" parent="."]
 script = SubResource("GDScript_c0j85")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_1xa1c")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-132, 0)
+shape = SubResource("SegmentShape2D_1xa1c")
+
 [connection signal="splittle" from="." to="Camera2D" method="_on_player_splittle"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

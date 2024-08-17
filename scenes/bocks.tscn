@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkum4ouevjlwg"]
+[gd_scene load_steps=3 format=3 uid="uid://ogcmjom3066h"]
 
 [ext_resource type="Texture2D" uid="uid://b7eklow4kuoga" path="res://assets/bocks.png" id="1_aun37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5db8f"]
 size = Vector2(64, 64)
 
-[node name="Bocks" type="RigidBody2D"]
+[node name="Bocks" type="RigidBody2D" groups=["Bocks"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
