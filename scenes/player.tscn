@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccicfing1r2rg"]
+[gd_scene load_steps=7 format=3 uid="uid://ccicfing1r2rg"]
 
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_lmyi4"]
-[ext_resource type="Texture2D" path="res://assets/player.png" id="2_affvc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qcak"]
 size = Vector2(126, 119)
@@ -10,13 +9,39 @@ size = Vector2(126, 119)
 a = Vector2(66, -24)
 b = Vector2(66, 48)
 
+[sub_resource type="Curve" id="Curve_k5xf3"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.392157, -2.03912), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_oy511"]
+curve = SubResource("Curve_k5xf3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pywtj"]
+lifetime_randomness = 0.88
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -48, 0)
+emission_shape = 3
+emission_box_extents = Vector3(64, 16, 1)
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 98, 0)
+linear_accel_curve = SubResource("CurveTexture_oy511")
+turbulence_noise_strength = 5.64
+turbulence_noise_scale = 8.455
+collision_mode = 1
+collision_friction = 0.14
+collision_bounce = 0.6
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lmyi4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.90735e-06, 0.5)
 scale = Vector2(7.875, 7.9375)
-texture = ExtResource("2_affvc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.5)
@@ -31,6 +56,12 @@ shape = SubResource("SegmentShape2D_1xa1c")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-131, 0)
 shape = SubResource("SegmentShape2D_1xa1c")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_pywtj")
+lifetime = 8.0
+one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
