@@ -78,9 +78,9 @@ func _physics_process(delta: float) -> void:
 				var scale_factor = TEXTURE_PIXEL_SIZE * scale.x
 
 				if look_right:
-					bocks.set_global_position(get_global_position() + Vector2(TEXTURE_PIXEL_SIZE * 8,0))
+					bocks.set_position(get_position() + Vector2(TEXTURE_PIXEL_SIZE * 8 * bocksScale, 0))
 				else:
-					bocks.set_global_position(get_global_position() + Vector2(-TEXTURE_PIXEL_SIZE*8,0))
+					bocks.set_position(get_position() + Vector2(-TEXTURE_PIXEL_SIZE * 8 * bocksScale, 0))
 
 				## /Prototype bocks scaling/ ##
 
