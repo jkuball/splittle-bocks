@@ -17,11 +17,30 @@ var look_right = true
 var is_scale_bocks = false
 var bocks_preview
 
+func _a_bocks_decayed():
+	bocksScale *= 2
+	apply_scale(Vector2(2, 2))
+	splittle.emit(Vector2(.5, .5))
+
+var bocks_list: Array[Node2D] = []
+func make_bocks() -> Node2D:
+	var bocks = Bocks.instantiate()
+	bocks.decayed.connect(_a_bocks_decayed)
+	spawn_target.add_child(bocks)
+
+	bocks_list = bocks_list.filter(is_instance_valid) # remove freed boxes
+	for bock in bocks_list:
+		# mark them as "not the newest" box
+		bock.begin_decay()
+
+	bocks_list.append(bocks)
+	return bocks
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if (not is_on_floor()) and (not is_scale_bocks):
 		velocity += get_gravity() * delta
-		
+
 	if(is_instance_valid(bocks_preview)):
 		if look_right:
 			bocks_preview.set_position(Vector2($"Sprite2D".texture.get_size().x*8,0))
@@ -33,15 +52,14 @@ func _physics_process(delta: float) -> void:
 		bocks_preview = Bocks_Preview.instantiate()
 		self.add_child(bocks_preview)
 		#print_debug(Vector2($"Sprite2D".texture.get_size().x*scale.x*8,0))
-		
-	
+
+
 	# Handle box spawning.
 	if Input.is_action_just_released("player_splittle"):
 		if is_instance_valid(bocks_preview):
 			bocks_preview.queue_free()
 			if bocksScale > minBocksScale and bocks_preview.builtToScale:
-				var bocks = Bocks.instantiate()
-				spawn_target.add_child(bocks)
+				var bocks = make_bocks()
 
 				## Prototype bocks scaling ##
 				bocks.find_child("Collider").apply_scale(Vector2(bocksScale,bocksScale))
@@ -60,8 +78,8 @@ func _physics_process(delta: float) -> void:
 
 				apply_scale(Vector2(0.5,0.5))
 				splittle.emit(Vector2(2, 2))
-				
-		
+
+
 
 
 	# Get the input direction and handle the movement/deceleration.
