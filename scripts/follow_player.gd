@@ -15,7 +15,7 @@ func _physics_process(delta):
 	zoom = lerp(zoom, wanted_zoom, 0.2)
  
 func _on_player_splittle(scale):
-	if zoom == wanted_zoom:
+	if zoom == wanted_zoom: 
 		wanted_zoom = zoom * scale
 	else:
 		wanted_zoom = wanted_zoom * scale

@@ -30,7 +30,7 @@ size = Vector2(126, 119)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1xa1c"]
 a = Vector2(66, -24)
-b = Vector2(66, 48)
+b = Vector2(66, 63)
 
 [sub_resource type="Curve" id="Curve_k5xf3"]
 min_value = -200.0

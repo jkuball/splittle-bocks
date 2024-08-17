@@ -102,6 +102,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			look_right = direction > 0
 			velocity.x = direction * SPEED * bocksScale * delta
+			if velocity.y<0:
+				velocity.y = 0
 		if is_on_floor():
 			look_right = direction > 0
 			velocity.x = direction * SPEED * bocksScale * delta

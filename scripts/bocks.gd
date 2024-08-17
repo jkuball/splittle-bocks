@@ -8,7 +8,7 @@ signal decayed(bocks: Node2D)
 
 func begin_decay():
 	if not decaying:
-		print_debug(self, ": I am dying :(")
+		#print_debug(self, ": I am dying :(")
 		
 		var tween = get_tree().create_tween()
 		tween.set_parallel(true)
