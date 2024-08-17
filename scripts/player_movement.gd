@@ -17,23 +17,29 @@ var look_right = true
 var is_scale_bocks = false
 var bocks_preview
 
-func _a_bocks_decayed():
+func _a_bocks_decayed(box: Node2D):
 	bocksScale *= 2
 	apply_scale(Vector2(2, 2))
 	splittle.emit(Vector2(.5, .5))
+	
+	bocks_list.erase(box)
+	check_decay()
+	for bocks in bocks_list:
+		var rb: RigidBody2D = bocks.get_node("RigidBody")
+		rb.sleeping = false
+
+func check_decay():
+	bocks_list = bocks_list.filter(is_instance_valid) # remove freed boxes
+	if len(bocks_list) > 0 and bocks_list.all(func(box): return not box.decaying):
+		bocks_list[0].begin_decay()
 
 var bocks_list: Array[Node2D] = []
 func make_bocks() -> Node2D:
 	var bocks = Bocks.instantiate()
 	bocks.decayed.connect(_a_bocks_decayed)
 	spawn_target.add_child(bocks)
-
-	bocks_list = bocks_list.filter(is_instance_valid) # remove freed boxes
-	for bock in bocks_list:
-		# mark them as "not the newest" box
-		bock.begin_decay()
-
 	bocks_list.append(bocks)
+	check_decay()
 	return bocks
 
 func _physics_process(delta: float) -> void:

@@ -4,7 +4,7 @@ var decaying: bool = false
 
 const decay_seconds = 2
 
-signal decayed
+signal decayed(bocks: Node2D)
 
 func begin_decay():
 	if not decaying:
@@ -20,6 +20,6 @@ func begin_decay():
 		# In that case, we need to use the 'finished' signal.
 		#tween.tween_callback(queue_free)
 		tween.finished.connect(queue_free)
-		tween.finished.connect(decayed.emit)
+		tween.finished.connect(func lambda(): decayed.emit(self))
 		
 		decaying = true
