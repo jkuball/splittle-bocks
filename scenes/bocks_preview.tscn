@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2rsm4sqqflnk"]
+[gd_scene load_steps=4 format=3 uid="uid://bpmxixec08ki2"]
 
 [ext_resource type="Texture2D" uid="uid://b7eklow4kuoga" path="res://assets/bocks.png" id="1_f2x8o"]
 [ext_resource type="Script" path="res://scripts/bocks_preview.gd" id="1_q0qf7"]
@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cn6yw"]
 size = Vector2(126, 126)
 
-[node name="Bocks" type="Node2D"]
+[node name="Bocks2" type="Node2D"]
 script = ExtResource("1_q0qf7")
 
 [node name="BocksSprite" type="Sprite2D" parent="."]

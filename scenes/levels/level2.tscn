@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=4 uid="uid://dyxhy4ei2dwyq"]
+
+[ext_resource type="Script" path="res://scripts/follow_player.gd" id="1_rdclj"]
+[ext_resource type="PackedScene" uid="uid://ccicfing1r2rg" path="res://scenes/player.tscn" id="2_tkm38"]
+[ext_resource type="Texture2D" uid="uid://dc1cqicvjdn21" path="res://assets/bricks.png" id="3_c7inw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ohsaj"]
+resource_name = "Atlas2"
+texture = ExtResource("3_c7inw")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0, -8, 0)
+
+[sub_resource type="TileSet" id="TileSet_am56h"]
+uv_clipping = true
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_ohsaj")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(964, 343)
+zoom = Vector2(0.49, 0.49)
+script = ExtResource("1_rdclj")
+player = NodePath("../Player")
+
+[node name="Player" parent="." node_paths=PackedStringArray("spawn_target") instance=ExtResource("2_tkm38")]
+position = Vector2(184, 455)
+spawn_target = NodePath("..")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAD//wUAAwAAAAAAAAAAAAUAAwAAAAAAAAABAAUAAwAAAAAAAAACAAUAAwAAAAAAAAADAAUAAwAAAAAAAAAEAAUAAwAAAAAAAAAIAAUAAwAAAAAAAAAJAAUAAwAAAAAAAAAKAAUAAwAAAAAAAAALAAUAAwAAAAAAAAAMAAUAAwAAAAAAAAD//wYAAwAAAAAAAAAAAAYAAwAAAAAAAAABAAYAAwAAAAAAAAACAAYAAwAAAAAAAAADAAYAAwAAAAAAAAAEAAYAAwAAAAAAAAAFAAYAAwAAAAAAAAAGAAYAAwAAAAAAAAAHAAYAAwAAAAAAAAAIAAYAAwAAAAAAAAAJAAYAAwAAAAAAAAAKAAYAAwAAAAAAAAALAAYAAwAAAAAAAAAMAAYAAwAAAAAAAAD+/wUAAwAAAAAAAAD+/wYAAwAAAAAAAAD+/wQAAwAAAAAAAAD+/wMAAwAAAAAAAAD+/wIAAwAAAAAAAAD+/wEAAwAAAAAAAAD+/wAAAwAAAAAAAAD+////AwAAAAAAAAD+//7/AwAAAAAAAAD+//3/AwAAAAAAAAD///3/AwAAAAAAAAAAAP3/AwAAAAAAAAABAP3/AwAAAAAAAAACAP3/AwAAAAAAAAADAP3/AwAAAAAAAAAEAP3/AwAAAAAAAAAFAP3/AwAAAAAAAAAGAP3/AwAAAAAAAAAHAP3/AwAAAAAAAAAIAP3/AwAAAAAAAAAJAP3/AwAAAAAAAAAKAP3/AwAAAAAAAAALAP3/AwAAAAAAAAAMAP3/AwAAAAAAAAANAP3/AwAAAAAAAAAOAP3/AwAAAAAAAAANAAYAAwAAAAAAAAANAAUAAwAAAAAAAAANAAQAAwAAAAAAAAANAAMAAwAAAAAAAAANAAIAAwAAAAAAAAANAAEAAwAAAAAAAAANAAAAAwAAAAAAAAANAP//AwAAAAAAAAANAP7/AwAAAAAAAAAOAP7/AwAAAAAAAAAOAP//AwAAAAAAAAAOAAAAAwAAAAAAAAAOAAEAAwAAAAAAAAAOAAIAAwAAAAAAAAD+//z/AwAAAAAAAAD///z/AwAAAAAAAAAAAPz/AwAAAAAAAAABAPz/AwAAAAAAAAACAPz/AwAAAAAAAAADAPz/AwAAAAAAAAAEAPz/AwAAAAAAAAAFAPz/AwAAAAAAAAAGAPz/AwAAAAAAAAAHAPz/AwAAAAAAAAAIAPz/AwAAAAAAAAAJAPz/AwAAAAAAAAAKAPz/AwAAAAAAAAALAPz/AwAAAAAAAAAMAPz/AwAAAAAAAAANAPz/AwAAAAAAAAAOAPz/AwAAAAAAAAD9//z/AwAAAAAAAAD9//3/AwAAAAAAAAD9//7/AwAAAAAAAAD9////AwAAAAAAAAD9/wAAAwAAAAAAAAD9/wEAAwAAAAAAAAD9/wIAAwAAAAAAAAD9/wMAAwAAAAAAAAD9/wQAAwAAAAAAAAD9/wUAAwAAAAAAAAD9/wYAAwAAAAAAAAAOAAMAAwAAAAAAAAAOAAQAAwAAAAAAAAAOAAUAAwAAAAAAAAAOAAYAAwAAAAAAAAA=")
+tile_set = SubResource("TileSet_am56h")
+
+[connection signal="splittle" from="Player" to="Camera2D" method="_on_player_splittle"]
