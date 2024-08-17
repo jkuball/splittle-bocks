@@ -16,7 +16,9 @@ var look_right = true
 var is_scale_bocks = false
 
 func _a_bocks_decayed():
-	print_debug("TODO: A bocks decayed, I should grow!")
+	bocksScale *= 2
+	apply_scale(Vector2(2, 2))
+	splittle.emit(Vector2(.5, .5))
 
 var bocks_list: Array[Node2D] = []
 func make_bocks() -> Node2D:
