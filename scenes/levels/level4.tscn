@@ -24,5 +24,7 @@ tile_set = ExtResource("3_3ycej")
 
 [node name="Pressure_Plate" parent="." instance=ExtResource("4_0lwj4")]
 position = Vector2(960, 704)
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.493545, 0.493546, 0.493546, 1)
 
 [connection signal="splittle" from="Player" to="Camera2D" method="_on_player_splittle"]
