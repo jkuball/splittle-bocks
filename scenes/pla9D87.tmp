@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccicfing1r2rg"]
+
+[ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_lmyi4"]
+[ext_resource type="Texture2D" uid="uid://cuoukr7d0jdaa" path="res://assets/player.png" id="2_affvc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qcak"]
+size = Vector2(126, 119)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1xa1c"]
+a = Vector2(66, -24)
+b = Vector2(66, 48)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_lmyi4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 0.5)
+scale = Vector2(7.875, 7.9375)
+texture = ExtResource("2_affvc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_4qcak")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("SegmentShape2D_1xa1c")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-131, 0)
+shape = SubResource("SegmentShape2D_1xa1c")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

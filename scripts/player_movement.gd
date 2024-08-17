@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var spawn_target: Node2D
 
 const Bocks: PackedScene = preload("res://scenes/bocks.tscn")
+const Bocks_Preview: PackedScene = preload("res://scenes/bocks_preview.tscn")
 
 signal splittle(scale: Vector2)
 
@@ -14,34 +15,53 @@ const minBocksScale = 0.0625
 var look_right = true
 
 var is_scale_bocks = false
+var bocks_preview
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if (not is_on_floor()) and (not is_scale_bocks):
 		velocity += get_gravity() * delta
-
-	# Handle box spawning.
-	if bocksScale > minBocksScale and Input.is_action_just_pressed("player_splittle"):
-		var bocks = Bocks.instantiate()
-		spawn_target.add_child(bocks)
-
-		## Prototype bocks scaling ##
-		bocks.find_child("Collider").apply_scale(Vector2(bocksScale,bocksScale))
-
-		bocksScale = bocksScale / 2
-		print_debug(bocksScale)
-
-		var scale_factor = get_child(0).texture.get_size().x * scale.x
-
+		
+	if(is_instance_valid(bocks_preview)):
 		if look_right:
-			bocks.set_global_position(get_global_position() + Vector2(scale_factor, 0))
+			bocks_preview.set_position(Vector2($"Sprite2D".texture.get_size().x*8,0))
 		else:
-			bocks.set_global_position(get_global_position() + Vector2(-scale_factor, 0))
+			bocks_preview.set_position(Vector2(-$"Sprite2D".texture.get_size().x*8,0))
 
-		## /Prototype bocks scaling/ ##
+	# Handle box preview
+	if bocksScale > minBocksScale and Input.is_action_just_pressed("player_splittle"):
+		bocks_preview = Bocks_Preview.instantiate()
+		self.add_child(bocks_preview)
+		#print_debug(Vector2($"Sprite2D".texture.get_size().x*scale.x*8,0))
+		
+	
+	# Handle box spawning.
+	if Input.is_action_just_released("player_splittle"):
+		if is_instance_valid(bocks_preview):
+			bocks_preview.queue_free()
+			if bocksScale > minBocksScale and bocks_preview.builtToScale:
+				var bocks = Bocks.instantiate()
+				spawn_target.add_child(bocks)
 
-		apply_scale(Vector2(0.5,0.5))
-		splittle.emit(Vector2(2, 2))
+				## Prototype bocks scaling ##
+				bocks.find_child("Collider").apply_scale(Vector2(bocksScale,bocksScale))
+
+				bocksScale = bocksScale / 2
+				#print_debug(bocksScale)
+
+				var scale_factor = get_child(0).texture.get_size().x * scale.x
+
+				if look_right:
+					bocks.set_global_position(get_global_position() + Vector2($"Sprite2D".texture.get_size().x*scale.x*8,0))
+				else:
+					bocks.set_global_position(get_global_position() + Vector2(-$"Sprite2D".texture.get_size().x*scale.x*8,0))
+
+				## /Prototype bocks scaling/ ##
+
+				apply_scale(Vector2(0.5,0.5))
+				splittle.emit(Vector2(2, 2))
+				
+		
 
 
 	# Get the input direction and handle the movement/deceleration.
