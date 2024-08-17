@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://csmkgaf6dn32l"]
+[gd_scene load_steps=5 format=4 uid="uid://r36f3yg46hj1"]
 
 [ext_resource type="Script" path="res://scripts/follow_player.gd" id="1_378in"]
 [ext_resource type="PackedScene" uid="uid://c2wkhfsiwtuvv" path="res://scenes/player.tscn" id="2_lu5v1"]
@@ -16,6 +16,7 @@ player = NodePath("../Player")
 [node name="Player" parent="." node_paths=PackedStringArray("spawn_target") instance=ExtResource("2_lu5v1")]
 position = Vector2(184, 455)
 spawn_target = NodePath("..")
+number_of_available_boxes = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)

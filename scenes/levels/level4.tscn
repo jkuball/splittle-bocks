@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://buf3uaa5v4x1x" path="res://assets/tile_set_full.tres" id="3_3ycej"]
 [ext_resource type="PackedScene" uid="uid://dk60gs2hajwx7" path="res://scenes/pressure_plate.tscn" id="4_0lwj4"]
 
-[node name="Node2D3" type="Node2D"]
+[node name="Node2D4" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(964, 343)
@@ -16,6 +16,7 @@ player = NodePath("../Player")
 [node name="Player" parent="." node_paths=PackedStringArray("spawn_target") instance=ExtResource("2_gtv0c")]
 position = Vector2(184, 455)
 spawn_target = NodePath("..")
+number_of_available_boxes = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)

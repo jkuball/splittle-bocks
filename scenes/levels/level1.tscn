@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://ghisqlvggvpd"]
+[gd_scene load_steps=6 format=4 uid="uid://ghisqlvggvpd"]
 
 [ext_resource type="Script" path="res://scripts/follow_player.gd" id="1_ncram"]
 [ext_resource type="PackedScene" uid="uid://c2wkhfsiwtuvv" path="res://scenes/player.tscn" id="2_i11q5"]
 [ext_resource type="TileSet" uid="uid://buf3uaa5v4x1x" path="res://assets/tile_set_full.tres" id="3_0881b"]
 [ext_resource type="PackedScene" uid="uid://cu4gu0acf6dp1" path="res://scenes/goal.tscn" id="4_pcl5x"]
+[ext_resource type="PackedScene" uid="uid://bvow2qdtaojla" path="res://scenes/pickup.tscn" id="5_6bqss"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -14,7 +15,9 @@ player = NodePath("../Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("spawn_target") instance=ExtResource("2_i11q5")]
 position = Vector2(-3146, 14)
+scale = Vector2(0.5, 0.5)
 spawn_target = NodePath("..")
+bocksScale = 0.5
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
@@ -27,5 +30,8 @@ rotation = -6.28319
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.493545, 0.493546, 0.493546, 1)
+
+[node name="Pickup" parent="." instance=ExtResource("5_6bqss")]
+position = Vector2(340, 849)
 
 [connection signal="splittle" from="Player" to="Camera2D" method="_on_player_splittle"]
