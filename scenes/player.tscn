@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2wkhfsiwtuvv"]
+[gd_scene load_steps=16 format=3 uid="uid://c2wkhfsiwtuvv"]
 
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_lmyi4"]
 [ext_resource type="Texture2D" uid="uid://du1acm5ck1sba" path="res://assets/player/player_idle.png" id="2_4td5n"]
@@ -25,8 +25,8 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qcak"]
-size = Vector2(126, 119)
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3lrq"]
+radius = 60.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1xa1c"]
 a = Vector2(66, -24)
@@ -77,6 +77,8 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgs71"]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lmyi4")
 
@@ -89,9 +91,9 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.0705651
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4.5)
-shape = SubResource("RectangleShape2D_4qcak")
+[node name="BEAN" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.915)
+shape = SubResource("CircleShape2D_i3lrq")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -117,5 +119,13 @@ scale = Vector2(2.34375, 2.34375)
 color = Color(0, 0.670588, 0, 1)
 texture = SubResource("GradientTexture2D_f6g3u")
 
+[node name="PlatzArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatzArea"]
+position = Vector2(0, 4.63)
+scale = Vector2(5.02, 5.02)
+shape = SubResource("CircleShape2D_jgs71")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="PlatzArea" to="." method="_on_platz_area_body_entered"]

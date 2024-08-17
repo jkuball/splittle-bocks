@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var spawn_target: Node2D
 
+@export var number_of_available_boxes = 0
+
 const TEXTURE_PIXEL_SIZE = 16
 
 const Bocks: PackedScene = preload("res://scenes/bocks.tscn")
@@ -37,12 +39,20 @@ func check_decay():
 
 var bocks_list: Array[Node2D] = []
 func make_bocks() -> Node2D:
+	assert(number_of_available_boxes > 0)
+	number_of_available_boxes -= 1
 	var bocks = Bocks.instantiate()
 	bocks.decayed.connect(_a_bocks_decayed)
 	spawn_target.add_child(bocks)
 	bocks_list.append(bocks)
 	check_decay()
 	return bocks
+
+func reposition_preview():
+	if look_right:
+		bocks_preview.set_position(Vector2(TEXTURE_PIXEL_SIZE*8,0))
+	else:
+		bocks_preview.set_position(-Vector2(TEXTURE_PIXEL_SIZE*8,0))
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -51,19 +61,16 @@ func _physics_process(delta: float) -> void:
 
 	if(is_instance_valid(bocks_preview)):
 		#$AnimatedSprite2D
-		if look_right:
-			bocks_preview.set_position(Vector2(TEXTURE_PIXEL_SIZE*8,0))
-		else:
-			bocks_preview.set_position(-Vector2(TEXTURE_PIXEL_SIZE*8,0))
+		reposition_preview()
 
 	# Handle box preview
-	if bocksScale > minBocksScale and Input.is_action_just_pressed("player_splittle"):
+	if number_of_available_boxes > 0 and bocksScale > minBocksScale and Input.is_action_just_pressed("player_splittle"):
 		bocks_preview = Bocks_Preview.instantiate()
+		reposition_preview()
 		self.add_child(bocks_preview)
 
-
 	# Handle box spawning.
-	if Input.is_action_just_released("player_splittle"):
+	if number_of_available_boxes > 0 and Input.is_action_just_released("player_splittle"):
 		if is_instance_valid(bocks_preview):
 			bocks_preview.queue_free()
 			if bocksScale > minBocksScale and bocks_preview.builtToScale:
@@ -127,3 +134,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		if is_scale_bocks:
 			is_scale_bocks = false
 	pass # Replace with function body.
+
+
+func _on_platz_area_body_entered(body):
+	if body is TileMapLayer:
+		print_debug("boom -- ich bin geplatzt! ", body)
