@@ -14,11 +14,70 @@ follow_target = NodePath("../Player")
 position = Vector2(184, 455)
 spawn_target = NodePath("..")
 
-[node name="Wall" parent="." instance=ExtResource("3_2hrnh")]
-position = Vector2(573, 636)
+[node name="Geometry" type="Node" parent="."]
 
-[node name="Wall2" parent="." instance=ExtResource("3_2hrnh")]
-position = Vector2(575, 192)
-scale = Vector2(0.065, 9.82)
+[node name="Wall" parent="Geometry" instance=ExtResource("3_2hrnh")]
+position = Vector2(-19, 706)
+
+[node name="Wall" parent="Geometry/Wall" instance=ExtResource("3_2hrnh")]
+position = Vector2(512, 0)
+
+[node name="Wall2" parent="Geometry/Wall" instance=ExtResource("3_2hrnh")]
+position = Vector2(640, 0)
+
+[node name="Wall" parent="Geometry/Wall/Wall2" instance=ExtResource("3_2hrnh")]
+position = Vector2(128, 0)
+
+[node name="Wall2" parent="Geometry/Wall/Wall2" instance=ExtResource("3_2hrnh")]
+position = Vector2(256, 0)
+
+[node name="Wall2" parent="Geometry/Wall/Wall2/Wall2" instance=ExtResource("3_2hrnh")]
+position = Vector2(128, -384)
+
+[node name="Wall2" parent="Geometry/Wall/Wall2/Wall2/Wall2" instance=ExtResource("3_2hrnh")]
+position = Vector2(0, -256)
+
+[node name="Wall3" parent="Geometry/Wall/Wall2/Wall2/Wall2" instance=ExtResource("3_2hrnh")]
+position = Vector2(0, -128)
+
+[node name="Wall3" parent="Geometry/Wall/Wall2/Wall2" instance=ExtResource("3_2hrnh")]
+position = Vector2(128, -256)
+
+[node name="Wall3" parent="Geometry/Wall/Wall2/Wall2/Wall3" instance=ExtResource("3_2hrnh")]
+position = Vector2(0, 64)
+rotation = 3.14159
+
+[node name="Wall3" parent="Geometry/Wall" instance=ExtResource("3_2hrnh")]
+position = Vector2(1024, 0)
+
+[node name="Wall" parent="Geometry/Wall/Wall3" instance=ExtResource("3_2hrnh")]
+position = Vector2(512, 0)
+
+[node name="Wall2" parent="Geometry/Wall/Wall3" instance=ExtResource("3_2hrnh")]
+position = Vector2(640, 0)
+
+[node name="Wall" parent="Geometry/Wall/Wall3/Wall2" instance=ExtResource("3_2hrnh")]
+position = Vector2(128, 0)
+
+[node name="Wall2" parent="Geometry/Wall/Wall3/Wall2" instance=ExtResource("3_2hrnh")]
+position = Vector2(256, 0)
+
+[node name="Wall4" parent="Geometry/Wall" instance=ExtResource("3_2hrnh")]
+position = Vector2(1152, 0)
+
+[node name="Wall" parent="Geometry/Wall/Wall4" instance=ExtResource("3_2hrnh")]
+position = Vector2(128, 0)
+
+[node name="Wall2" parent="Geometry/Wall/Wall4" instance=ExtResource("3_2hrnh")]
+position = Vector2(256, 0)
+
+[node name="Wall2" parent="Geometry" instance=ExtResource("3_2hrnh")]
+position = Vector2(109, 706)
+
+[node name="Wall" parent="Geometry/Wall2" instance=ExtResource("3_2hrnh")]
+position = Vector2(128, 0)
+
+[node name="Wall2" parent="Geometry/Wall2" instance=ExtResource("3_2hrnh")]
+position = Vector2(256, 0)
 
 [connection signal="splittle" from="Player" to="Camera2D" method="_on_player_splittle"]

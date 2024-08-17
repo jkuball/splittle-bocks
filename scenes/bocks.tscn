@@ -1,15 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://ogcmjom3066h"]
+[gd_scene load_steps=4 format=3 uid="uid://dkum4ouevjlwg"]
 
+[ext_resource type="Script" path="res://scripts/bocks.gd" id="1_7oxrv"]
 [ext_resource type="Texture2D" uid="uid://b7eklow4kuoga" path="res://assets/bocks.png" id="1_aun37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5db8f"]
 size = Vector2(64, 64)
 
-[node name="Bocks" type="RigidBody2D" groups=["Bocks"]]
+[node name="Bocks" type="Node2D" groups=["Bocks"]]
+script = ExtResource("1_7oxrv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="RigidBody" type="RigidBody2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="RigidBody"]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_5db8f")
 
-[node name="Bocks" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Bocks Sprite" type="Sprite2D" parent="RigidBody/Collider"]
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(4, 4)
 texture = ExtResource("1_aun37")

@@ -4,28 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cuoukr7d0jdaa" path="res://assets/player.png" id="2_affvc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qcak"]
-size = Vector2(128, 128)
-
-[sub_resource type="GDScript" id="GDScript_c0j85"]
-script/source = "extends Camera2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_player_splittle(scale: Vector2) -> void:
-	pass # Replace with function body.
-	set_zoom(get_zoom()*scale)
-
-	
-"
+size = Vector2(126, 119)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1xa1c"]
 a = Vector2(66, -64)
@@ -35,15 +14,13 @@ b = Vector2(66, 64)
 script = ExtResource("1_lmyi4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.90735e-06, 1.90735e-06)
-scale = Vector2(2, 2)
+position = Vector2(1.90735e-06, 0.5)
+scale = Vector2(7.875, 7.9375)
 texture = ExtResource("2_affvc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_4qcak")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-script = SubResource("GDScript_c0j85")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -54,6 +31,5 @@ shape = SubResource("SegmentShape2D_1xa1c")
 position = Vector2(-132, 0)
 shape = SubResource("SegmentShape2D_1xa1c")
 
-[connection signal="splittle" from="." to="Camera2D" method="_on_player_splittle"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
