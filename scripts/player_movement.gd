@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var spawn_target: Node2D
 
+const TEXTURE_PIXEL_SIZE = 16
+
 const Bocks: PackedScene = preload("res://scenes/bocks.tscn")
 const Bocks_Preview: PackedScene = preload("res://scenes/bocks_preview.tscn")
 
@@ -48,16 +50,16 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	if(is_instance_valid(bocks_preview)):
+		#$AnimatedSprite2D
 		if look_right:
-			bocks_preview.set_position(Vector2($"Sprite2D".texture.get_size().x*8,0))
+			bocks_preview.set_position(Vector2(TEXTURE_PIXEL_SIZE*8,0))
 		else:
-			bocks_preview.set_position(Vector2(-$"Sprite2D".texture.get_size().x*8,0))
+			bocks_preview.set_position(-Vector2(TEXTURE_PIXEL_SIZE*8,0))
 
 	# Handle box preview
 	if bocksScale > minBocksScale and Input.is_action_just_pressed("player_splittle"):
 		bocks_preview = Bocks_Preview.instantiate()
 		self.add_child(bocks_preview)
-		#print_debug(Vector2($"Sprite2D".texture.get_size().x*scale.x*8,0))
 
 
 	# Handle box spawning.
@@ -73,12 +75,12 @@ func _physics_process(delta: float) -> void:
 				bocksScale = bocksScale / 2
 				#print_debug(bocksScale)
 
-				var scale_factor = get_child(0).texture.get_size().x * scale.x
+				var scale_factor = TEXTURE_PIXEL_SIZE * scale.x
 
 				if look_right:
-					bocks.set_global_position(get_global_position() + Vector2($"Sprite2D".texture.get_size().x*scale.x*8,0))
+					bocks.set_global_position(get_global_position() + Vector2(TEXTURE_PIXEL_SIZE * 8,0))
 				else:
-					bocks.set_global_position(get_global_position() + Vector2(-$"Sprite2D".texture.get_size().x*scale.x*8,0))
+					bocks.set_global_position(get_global_position() + Vector2(-TEXTURE_PIXEL_SIZE*8,0))
 
 				## /Prototype bocks scaling/ ##
 
