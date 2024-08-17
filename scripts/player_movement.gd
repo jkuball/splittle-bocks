@@ -15,9 +15,13 @@ var look_right = true
 
 var is_scale_bocks = false
 
+func _a_bocks_decayed():
+	print_debug("TODO: A bocks decayed, I should grow!")
+
 var bocks_list: Array[Node2D] = []
 func make_bocks() -> Node2D:
 	var bocks = Bocks.instantiate()
+	bocks.decayed.connect(_a_bocks_decayed)
 	spawn_target.add_child(bocks)
 	
 	bocks_list = bocks_list.filter(is_instance_valid) # remove freed boxes

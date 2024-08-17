@@ -15,7 +15,7 @@ script = ExtResource("1_4qbuy")
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_5db8f")
 
-[node name="Bocks Sprite" type="Sprite2D" parent="RigidBody/Collider"]
+[node name="Sprite" type="Sprite2D" parent="RigidBody/Collider"]
 position = Vector2(-1.90735e-06, -1.90735e-06)
 scale = Vector2(4, 4)
 texture = ExtResource("1_aun37")
