@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://u7bh6iof3n10"]
 
-[ext_resource type="PackedScene" uid="uid://ccicfing1r2rg" path="res://scenes/player.tscn" id="1_28eyv"]
+[ext_resource type="PackedScene" uid="uid://c2wkhfsiwtuvv" path="res://scenes/player.tscn" id="1_28eyv"]
 [ext_resource type="Script" path="res://scripts/follow_player.gd" id="1_fwirh"]
-[ext_resource type="PackedScene" uid="uid://d0244705cky8d" path="res://scenes/wall.tscn" id="3_2hrnh"]
-[ext_resource type="PackedScene" path="res://scenes/goal.tscn" id="4_b4heb"]
+[ext_resource type="PackedScene" uid="uid://bv3rvjka57xc1" path="res://scenes/wall.tscn" id="3_2hrnh"]
+[ext_resource type="PackedScene" uid="uid://cu4gu0acf6dp1" path="res://scenes/goal.tscn" id="4_b4heb"]
 
-[node name="Node2D2" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(964, 343)

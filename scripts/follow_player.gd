@@ -19,4 +19,3 @@ func _on_player_splittle(scale):
 		wanted_zoom = zoom * scale
 	else:
 		wanted_zoom = wanted_zoom * scale
- 

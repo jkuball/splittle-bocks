@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpmxixec08ki2"]
+[gd_scene load_steps=4 format=3 uid="uid://c2rsm4sqqflnk"]
 
 [ext_resource type="Texture2D" uid="uid://b7eklow4kuoga" path="res://assets/bocks.png" id="1_f2x8o"]
 [ext_resource type="Script" path="res://scripts/bocks_preview.gd" id="1_q0qf7"]
