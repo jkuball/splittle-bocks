@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccicfing1r2rg"]
+[gd_scene load_steps=13 format=3 uid="uid://ccicfing1r2rg"]
 
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_lmyi4"]
 [ext_resource type="Texture2D" uid="uid://du1acm5ck1sba" path="res://assets/player/player_idle.png" id="2_4td5n"]
@@ -59,6 +59,15 @@ collision_mode = 1
 collision_friction = 0.14
 collision_bounce = 0.6
 
+[sub_resource type="Gradient" id="Gradient_r18ek"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y61a3"]
+gradient = SubResource("Gradient_r18ek")
+fill_from = Vector2(0, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 4
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lmyi4")
 
@@ -87,9 +96,12 @@ shape = SubResource("SegmentShape2D_1xa1c")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
+amount = 20
 process_material = SubResource("ParticleProcessMaterial_pywtj")
+texture = SubResource("GradientTexture2D_y61a3")
 lifetime = 8.0
 one_shot = true
+explosiveness = 1.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
