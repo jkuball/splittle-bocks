@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://q87i26gx2q35"]
+[gd_scene load_steps=7 format=4 uid="uid://q87i26gx2q35"]
 
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_210vw"]
 [ext_resource type="Script" path="res://scripts/follow_player.gd" id="1_rdclj"]
 [ext_resource type="PackedScene" uid="uid://c2wkhfsiwtuvv" path="res://scenes/player.tscn" id="2_tkm38"]
 [ext_resource type="TileSet" uid="uid://buf3uaa5v4x1x" path="res://assets/tile_set_full.tres" id="3_vtjo7"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dfs4csrso2wcm" path="res://scenes/hud.tscn" id="5_v4pg5"]
 
 [node name="Node2D4" type="Node2D"]
+script = ExtResource("1_210vw")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(964, 343)

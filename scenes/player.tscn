@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c2wkhfsiwtuvv"]
+[gd_scene load_steps=18 format=3 uid="uid://c2wkhfsiwtuvv"]
 
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_lmyi4"]
 [ext_resource type="Texture2D" uid="uid://du1acm5ck1sba" path="res://assets/player/player_idle.png" id="2_4td5n"]
@@ -85,8 +85,6 @@ fill_to = Vector2(0.5, 0)
 [sub_resource type="Gradient" id="Gradient_acq61"]
 colors = PackedColorArray(0, 0.301961, 0, 1, 0, 1, 0.333333, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gh8hy"]
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lmyi4")
 
@@ -131,11 +129,11 @@ texture = SubResource("GradientTexture2D_f6g3u")
 [node name="PlatzArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatzArea"]
-position = Vector2(0, 4.63)
 scale = Vector2(5.02, 5.02)
 shape = SubResource("CircleShape2D_jgs71")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, 3)
 emitting = false
 amount = 40
 lifetime = 4.0
@@ -150,10 +148,6 @@ initial_velocity_max = 635.2
 scale_amount_max = 15.17
 color_ramp = SubResource("Gradient_ca8q4")
 color_initial_ramp = SubResource("Gradient_acq61")
-
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
-visible = false
-process_material = SubResource("ShaderMaterial_gh8hy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

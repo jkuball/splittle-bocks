@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://ghisqlvggvpd"]
+[gd_scene load_steps=8 format=4 uid="uid://ghisqlvggvpd"]
 
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_n306p"]
 [ext_resource type="Script" path="res://scripts/follow_player.gd" id="1_ncram"]
 [ext_resource type="PackedScene" uid="uid://c2wkhfsiwtuvv" path="res://scenes/player.tscn" id="2_i11q5"]
 [ext_resource type="TileSet" uid="uid://buf3uaa5v4x1x" path="res://assets/tile_set_full.tres" id="3_0881b"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dfs4csrso2wcm" path="res://scenes/hud.tscn" id="5_nbs3j"]
 
 [node name="Node2D2" type="Node2D"]
+script = ExtResource("1_n306p")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(774, 224)

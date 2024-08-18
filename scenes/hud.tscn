@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfs4csrso2wcm"]
+[gd_scene load_steps=5 format=3 uid="uid://dfs4csrso2wcm"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_jp85u"]
+[ext_resource type="Texture2D" uid="uid://b7eklow4kuoga" path="res://assets/bocks.png" id="2_nkd1a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r6h3t"]
 font_size = 45
 font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yb6gj"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_jp85u")
@@ -21,3 +24,22 @@ press R to restart"
 label_settings = SubResource("LabelSettings_r6h3t")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(256, 64)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+texture = ExtResource("2_nkd1a")
+
+[node name="bocks_count" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_yb6gj")
+horizontal_alignment = 2

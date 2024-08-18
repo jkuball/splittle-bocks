@@ -14,6 +14,8 @@ signal splittle(scale: Vector2)
 
 signal end(toggle: bool)
 
+signal bocks_count_change(bockses: int)
+
 const minBocksScale = 0.0625
 
 var look_right = true
@@ -22,6 +24,9 @@ var is_scale_bocks = false
 var bocks_preview
 
 var dead = false
+
+func _ready() -> void:
+	bocks_count_change.emit(number_of_available_boxes)
 
 
 func grow():
@@ -38,6 +43,7 @@ func shrink():
 
 func _picked_up():
 	number_of_available_boxes += 1
+	bocks_count_change.emit(number_of_available_boxes)
 	grow()
 
 
@@ -59,6 +65,7 @@ var bocks_list: Array[Node2D] = []
 func make_bocks() -> Node2D:
 	assert(number_of_available_boxes > 0)
 	number_of_available_boxes -= 1
+	bocks_count_change.emit(number_of_available_boxes)
 	var bocks = Bocks.instantiate()
 	bocks.decayed.connect(_a_bocks_decayed)
 	spawn_target.add_child(bocks)
@@ -75,13 +82,15 @@ func reposition_preview():
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_released("respawn"):
+		var current_scene_file = get_tree().current_scene.scene_file_path
+		var same_level_number = current_scene_file.to_int()
+		var same_level_path = "res://scenes/levels/level"+str(same_level_number)+".tscn"
+		get_tree().change_scene_to_file(same_level_path)
+	
 	if dead:
-		if Input.is_action_just_released("respawn"):
-			var current_scene_file = get_tree().current_scene.scene_file_path
-			var same_level_number = current_scene_file.to_int()
-			var same_level_path = "res://scenes/levels/level"+str(same_level_number)+".tscn"
-			get_tree().change_scene_to_file(same_level_path)
 		return
+	
 	# Add the gravity.
 	if (not is_on_floor()) and (not is_scale_bocks):
 		velocity += get_gravity() * delta
