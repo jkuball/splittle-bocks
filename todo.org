@@ -1,36 +1,54 @@
 #+TITLE: Splittle Bocks
 #+FILETAGS: @gamedev
 
-* TODO [#A] level polish                                                :polish:
+* TODO [#A] level polish                                       :@gamedev:polish:
 
-* TODO [#A] credits?                                               :art:feature:
+* TODO [#A] credits?                                      :@gamedev:art:feature:
+
+** TODO different color slime                             :@gamedev:art:feature:
+
+* TODO [#A] brauchen wir einen namen für unser team?!
+
+  Ideen:
+  - JF Entertainment
 
 * TODO [#A] brauchen wir einen namen für das spiel?!
 
   Ideen:
   - Splittle Bocks
+  - Splittle Slime
+  - Splime
+  - Build to Scale
+  - Slime to Scale
+  - A Slime's Birthday Party
+  - Slimes & Bockses
+  - Bockes Rocks
+
+* TODO [#B] ambient graphics
+
+* TODO [#B] finetune parallax
 
 * TODO [#B] make sure you cant finish the level on a specific scale
 
 * TODO [#B] lerp wachsen und nicht einfach nur "puff" machen
 
-* TODO [#B] Musik                                                        :audio:
+* TODO [#B] Musik                                               :@gamedev:audio:
 
-* TODO [#B] lava                                                   :feature:art:
+* TODO [#B] lava                                          :@gamedev:feature:art:
 
-* TODO [#C] title screen                                           :feature:art:
+* TODO [#C] title screen                                  :@gamedev:feature:art:
 
 * TODO [#C] background farben anpassen                         :@gamedev:polish:
 
-* TODO [#C] vertikale mini tube für level 1                        :art:feature:
+* TODO [#C] vertikale mini tube für level 1               :@gamedev:art:feature:
 
-* TODO [#C] "finish level"-animation                        :art:feature:polish:
+* TODO [#C] "finish level"-animation               :@gamedev:art:feature:polish:
 
-* TODO [#C] laufanimation                                                  :art:
+* TODO [#C] laufanimation                                         :@gamedev:art:
 
-* TODO [#C] laufgeräusche                                                :audio:
+* TODO [#C] laufgeräusche                                       :@gamedev:audio:
 
-* TODO [#C] splatter geräusch beim sterben                               :audio:
+* TODO [#C] splatter geräusch beim sterben                      :@gamedev:audio:
 
 * TODO [#A] final release: splittle bocks
   DEADLINE: <2024-08-18 So>
