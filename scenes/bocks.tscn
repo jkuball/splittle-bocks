@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b7eklow4kuoga" path="res://assets/bocks.png" id="1_aun37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5db8f"]
-size = Vector2(15.875, 16)
+size = Vector2(16, 16)
 
 [node name="Bocks" type="Node2D"]
 scale = Vector2(8, 8)
@@ -13,8 +13,8 @@ script = ExtResource("1_4qbuy")
 [node name="RigidBody" type="RigidBody2D" parent="." groups=["Bocks"]]
 
 [node name="Collider" type="CollisionShape2D" parent="RigidBody"]
+scale = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_5db8f")
 
 [node name="Sprite" type="Sprite2D" parent="RigidBody/Collider"]
-position = Vector2(-3.8147e-06, -3.8147e-06)
 texture = ExtResource("1_aun37")

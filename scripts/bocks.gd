@@ -10,7 +10,8 @@ signal decayed(bocks: Node2D)
 
 func spawn_pickup():
 	var pickup = Pickup.instantiate()
-	pickup.transform.origin = transform.origin
+	pickup.transform.origin = transform.origin + Vector2.UP * scale.y
+	pickup.set_pickup_scale($RigidBody/Collider.scale)
 	get_parent().add_child(pickup)
 
 func begin_decay():
