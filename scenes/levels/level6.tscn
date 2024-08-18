@@ -87,7 +87,7 @@ label_settings = SubResource("LabelSettings_awfh8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelCredits2" type="Label" parent="CanvasLayer"]
+[node name="LabelBackground" type="Label" parent="CanvasLayer"]
 offset_left = 1955.0
 offset_top = -433.0
 offset_right = 2850.0
@@ -99,7 +99,7 @@ label_settings = SubResource("LabelSettings_awfh8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelCredits3" type="Label" parent="CanvasLayer"]
+[node name="LabelPlaytest" type="Label" parent="CanvasLayer"]
 offset_left = 1958.0
 offset_top = 189.0
 offset_right = 2853.0
@@ -110,7 +110,7 @@ label_settings = SubResource("LabelSettings_awfh8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelCredits4" type="Label" parent="CanvasLayer"]
+[node name="LabelDevelopedBy" type="Label" parent="CanvasLayer"]
 offset_left = 957.0
 offset_top = -3.0
 offset_right = 1852.0
