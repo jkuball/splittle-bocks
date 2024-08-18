@@ -58,4 +58,23 @@
   :ARCHIVE_CATEGORY: todo
   :ARCHIVE_TODO: TODO
   :END:
+* DONE background                                                 :@gamedev:art:
+  CLOSED: [2024-08-18 So 14:20]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2024-08-18 So 14:20
+  :ARCHIVE_FILE: /home/jkuball/Git/splittle-bocks/todo.org
+  :ARCHIVE_CATEGORY: todo
+  :ARCHIVE_TODO: TODO
+  :END:
+
+** DONE parallax?!                                         :@gamedev:art:polish:
+   CLOSED: [2024-08-18 So 14:20]
+* DONE pickups fliegen weg beim spawn                             :@gamedev:bug:
+  CLOSED: [2024-08-18 So 14:23]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2024-08-18 So 14:23
+  :ARCHIVE_FILE: /home/jkuball/Git/splittle-bocks/todo.org
+  :ARCHIVE_CATEGORY: todo
+  :ARCHIVE_TODO: TODO
+  :END:
 

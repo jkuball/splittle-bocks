@@ -1,45 +1,38 @@
 #+TITLE: Splittle Bocks
 #+FILETAGS: @gamedev
 
-* TODO title screen                                                :feature:art:
+* TODO [#A] level polish                                                :polish:
 
-* TODO background                                                          :art:
+* TODO [#A] credits?                                               :art:feature:
 
-** TODO simples bild oder einfach nur schwarz
+* TODO [#A] brauchen wir einen namen für das spiel?!
 
-** TODO parallax?!                                                      :polish:
+  Ideen:
+  - Splittle Bocks
 
-** TODO farben anpassen                                                 :polish:
+* TODO [#B] make sure you cant finish the level on a specific scale
 
-* TODO level polish                                                     :polish:
+* TODO [#B] lerp wachsen und nicht einfach nur "puff" machen
 
-* TODO vertikale mini tube für level 1                             :art:feature:
+* TODO [#B] Musik                                                        :audio:
 
-* TODO finish level animation                               :art:feature:polish:
+* TODO [#B] lava                                                   :feature:art:
 
-* TODO lerp wachsen und nicht einfach nur "puff" machen
+* TODO [#C] title screen                                           :feature:art:
 
-* TODO goals
+* TODO [#C] background farben anpassen                         :@gamedev:polish:
 
-** TODO make sure you cant finish the level on a specific scale
+* TODO [#C] vertikale mini tube für level 1                        :art:feature:
 
-* TODO laufanimation                                                       :art:
+* TODO [#C] "finish level"-animation                        :art:feature:polish:
 
-* TODO Laufgeräusche                                                     :audio:
+* TODO [#C] laufanimation                                                  :art:
 
-* TODO Musik                                                             :audio:
+* TODO [#C] laufgeräusche                                                :audio:
 
-* TODO splatter geräusch beim sterben                                    :audio:
+* TODO [#C] splatter geräusch beim sterben                               :audio:
 
-* TODO credits?                                                    :art:feature:
-
-* TODO pickups fliegen weg beim spawn                                      :bug:
-
-* TODO lava                                                        :feature:art:
-
-* TODO brauchen wir einen namen für das spiel?!
-
-* TODO final release: splittle bocks
+* TODO [#A] final release: splittle bocks
   DEADLINE: <2024-08-18 So>
 
 ** make sure you cant drop of the levels!
