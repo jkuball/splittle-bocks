@@ -175,5 +175,6 @@ func die():
 	$CPUParticles2D.emitting = true
 	#print_debug("boom -- ich bin geplatzt! ", body)
 	$AnimatedSprite2D.visible = false
+	$PointLight2D.visible = false
 	end.emit(true)
 	dead = true
