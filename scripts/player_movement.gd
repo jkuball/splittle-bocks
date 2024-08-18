@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var spawn_target: Node2D
 @export var bocksScale = 1.0
 @export var number_of_available_boxes = 0
+@export var BASE_SPEED = 58000.0
 
 const TEXTURE_PIXEL_SIZE = 16
 
@@ -12,9 +13,6 @@ const Bocks_Preview: PackedScene = preload("res://scenes/bocks_preview.tscn")
 signal splittle(scale: Vector2)
 
 signal end(toggle: bool)
-
-const SPEED = 58000.0
-
 
 const minBocksScale = 0.0625
 
@@ -26,14 +24,24 @@ var bocks_preview
 var dead = false
 
 
-func _picked_up():
-	number_of_available_boxes += 1
+func grow():
+	bocksScale *= 2
 	apply_scale(Vector2(2, 2))
 	splittle.emit(Vector2(.5, .5))
 
 
+func shrink():
+	bocksScale /= 2
+	apply_scale(Vector2(.5, .5))
+	splittle.emit(Vector2(2, 2))
+
+
+func _picked_up():
+	number_of_available_boxes += 1
+	grow()
+
+
 func _a_bocks_decayed(box: Node2D):
-	bocksScale *= 2
 	bocks_list.erase(box)
 	check_decay()
 	for bocks in bocks_list:
@@ -46,6 +54,7 @@ func check_decay():
 	if len(bocks_list) > 0 and bocks_list.all(func(box): return not box.decaying):
 		bocks_list[0].begin_decay()
 
+
 var bocks_list: Array[Node2D] = []
 func make_bocks() -> Node2D:
 	assert(number_of_available_boxes > 0)
@@ -57,14 +66,15 @@ func make_bocks() -> Node2D:
 	check_decay()
 	return bocks
 
+
 func reposition_preview():
 	if look_right:
 		bocks_preview.set_position(Vector2(TEXTURE_PIXEL_SIZE*8,0))
 	else:
 		bocks_preview.set_position(-Vector2(TEXTURE_PIXEL_SIZE*8,0))
 
-func _physics_process(delta: float) -> void:
 
+func _physics_process(delta: float) -> void:
 	if dead:
 		if Input.is_action_just_released("respawn"):
 			var current_scene_file = get_tree().current_scene.scene_file_path
@@ -96,9 +106,6 @@ func _physics_process(delta: float) -> void:
 				## Prototype bocks scaling ##
 				bocks.find_child("Collider").apply_scale(Vector2(bocksScale,bocksScale))
 
-				bocksScale = bocksScale / 2
-				#print_debug(bocksScale)
-
 				var scale_factor = TEXTURE_PIXEL_SIZE * scale.x
 
 				if look_right:
@@ -106,11 +113,7 @@ func _physics_process(delta: float) -> void:
 				else:
 					bocks.set_position(get_position() + Vector2(-TEXTURE_PIXEL_SIZE * 8 * bocksScale, 0))
 
-				## /Prototype bocks scaling/ ##
-
-				apply_scale(Vector2(0.5,0.5))
-				splittle.emit(Vector2(2, 2))
-
+				shrink()
 
 
 
@@ -120,21 +123,21 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		if is_scale_bocks:
 			if look_right:
-				velocity.y = -direction * SPEED * bocksScale * delta
+				velocity.y = -direction * BASE_SPEED * bocksScale * delta
 			else:
-				velocity.y = direction * SPEED * bocksScale * delta
+				velocity.y = direction * BASE_SPEED * bocksScale * delta
 		else:
 			look_right = direction > 0
-			velocity.x = direction * SPEED * bocksScale * delta
+			velocity.x = direction * BASE_SPEED * bocksScale * delta
 			if velocity.y<0:
 				velocity.y = 0
 		if is_on_floor():
 			look_right = direction > 0
-			velocity.x = direction * SPEED * bocksScale * delta
+			velocity.x = direction * BASE_SPEED * bocksScale * delta
 	else:
 		if is_scale_bocks:
-			velocity.y = move_toward(velocity.y, 0, SPEED * bocksScale * delta)
-		velocity.x = move_toward(velocity.x, 0, SPEED * bocksScale * delta)
+			velocity.y = move_toward(velocity.y, 0, BASE_SPEED * bocksScale * delta)
+		velocity.x = move_toward(velocity.x, 0, BASE_SPEED * bocksScale * delta)
 
 	move_and_slide()
 

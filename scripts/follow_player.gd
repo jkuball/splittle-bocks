@@ -9,13 +9,13 @@ func _ready():
 
 func _physics_process(delta):
 	# TODO: only move the camera if the player gets to the borders
-	
+
 	# lerp dat shit
 	transform.origin = lerp(transform.origin, player.transform.origin, 0.2)
 	zoom = lerp(zoom, wanted_zoom, 0.2)
- 
+
 func _on_player_splittle(scale):
-	if zoom == wanted_zoom: 
+	if zoom == wanted_zoom:
 		wanted_zoom = zoom * scale
 	else:
 		wanted_zoom = wanted_zoom * scale

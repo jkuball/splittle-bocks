@@ -7,7 +7,7 @@ func _ready():
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_loops()
-	
+
 	tween.tween_property(self, "scale", orig_scale * 1.1, 0.5)
 	tween.tween_property(self, "scale", orig_scale * 0.9, 0.5)
 
