@@ -62,15 +62,18 @@ func check_decay():
 
 
 var bocks_list: Array[Node2D] = []
-func make_bocks() -> Node2D:
+func make_bocks(scale: float) -> Node2D:
+	print_debug("making a box with scale ", scale)
 	assert(number_of_available_boxes > 0)
 	number_of_available_boxes -= 1
 	bocks_count_change.emit(number_of_available_boxes)
 	var bocks = Bocks.instantiate()
 	bocks.decayed.connect(_a_bocks_decayed)
+	bocks.find_child("Collider").apply_scale(Vector2(scale, scale))
 	spawn_target.add_child(bocks)
 	bocks_list.append(bocks)
 	check_decay()
+	print_debug("scale of box is ", bocks.scale)
 	return bocks
 
 
@@ -87,10 +90,10 @@ func _physics_process(delta: float) -> void:
 		var same_level_number = current_scene_file.to_int()
 		var same_level_path = "res://scenes/levels/level"+str(same_level_number)+".tscn"
 		get_tree().change_scene_to_file(same_level_path)
-	
+
 	if dead:
 		return
-	
+
 	# Add the gravity.
 	if (not is_on_floor()) and (not is_scale_bocks):
 		velocity += get_gravity() * delta
@@ -110,10 +113,7 @@ func _physics_process(delta: float) -> void:
 		if is_instance_valid(bocks_preview):
 			bocks_preview.queue_free()
 			if bocksScale > minBocksScale and bocks_preview.builtToScale:
-				var bocks = make_bocks()
-
-				## Prototype bocks scaling ##
-				bocks.find_child("Collider").apply_scale(Vector2(bocksScale,bocksScale))
+				var bocks = make_bocks(bocksScale)
 
 				var scale_factor = TEXTURE_PIXEL_SIZE * scale.x
 
@@ -123,8 +123,6 @@ func _physics_process(delta: float) -> void:
 					bocks.set_position(get_position() + Vector2(-TEXTURE_PIXEL_SIZE * 8 * bocksScale, 0))
 
 				shrink()
-
-
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

@@ -13,8 +13,8 @@ func _process(delta: float) -> void:
 
 func _on_player_end(toggle: bool) -> void:
 	#print_debug("Das Ende naht!")
-	$Label_Die.visible = true
-	
+	$Label_Die.visible = toggle
+
 func _on_bocks_count_change(bockses: int) -> void:
 	#print_debug("Das Ende naht!")
 	$HBoxContainer/bocks_count.text = str(bockses)

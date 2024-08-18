@@ -1,10 +1,12 @@
 extends Node2D
 
-@export var starting_scale = 1.0
 
+@export var initial_scale: float = 1
+
+var scaled: bool = false
 
 func _ready():
-	set_pickup_scale(Vector2(starting_scale, starting_scale))
+	set_pickup_scale(Vector2(initial_scale, initial_scale))
 
 
 func _on_area_2d_body_entered(body):
@@ -14,6 +16,10 @@ func _on_area_2d_body_entered(body):
 
 
 func set_pickup_scale(scale: Vector2):
+	if scaled:
+		return
+
 	print_debug("i am scaling this pickup to ", scale)
+
 	$CollisionShape2D.scale = scale
-	$"Area2D/CollisionShape2D".scale = scale
+	scaled = true

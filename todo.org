@@ -9,27 +9,21 @@
 
 ** TODO parallax?!                                                      :polish:
 
+** TODO farben anpassen                                                 :polish:
+
 * TODO level polish                                                     :polish:
 
 * TODO vertikale mini tube für level 1                             :art:feature:
 
 * TODO finish level animation                               :art:feature:polish:
 
-* TODO ein level indem man wachsen muss                            :art:feature:
-
 * TODO lerp wachsen und nicht einfach nur "puff" machen
 
 * TODO goals
 
-** TODO scale all goals
-
 ** TODO make sure you cant finish the level on a specific scale
 
 * TODO laufanimation                                                       :art:
-
-* TODO restart level auch wenn wir leben (einfach platzen)
-
-* TODO make sure you cant drop of the levels
 
 * TODO Laufgeräusche                                                     :audio:
 
@@ -39,8 +33,15 @@
 
 * TODO credits?                                                    :art:feature:
 
+* TODO pickups fliegen weg beim spawn                                      :bug:
+
+* TODO lava                                                        :feature:art:
+
 * TODO brauchen wir einen namen für das spiel?!
 
 * TODO final release: splittle bocks
   DEADLINE: <2024-08-18 So>
 
+** make sure you cant drop of the levels!
+
+** make sure we credit the bg artist!
