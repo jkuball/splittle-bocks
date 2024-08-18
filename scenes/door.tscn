@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://m5de12o0cp8x"]
+
+[ext_resource type="Texture2D" uid="uid://dc1cqicvjdn21" path="res://assets/bricks.png" id="1_3ytwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5y0p"]
+
+[node name="Door" type="Node2D"]
+
+[node name="door_sprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_3ytwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q5y0p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
