@@ -13,7 +13,7 @@
 script = ExtResource("1_n306p")
 
 [node name="BackgroundParallax" parent="." instance=ExtResource("2_p1r67")]
-position = Vector2(7.125, 330.625)
+position = Vector2(0, 216.9)
 scale = Vector2(1.5, 1.5)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]

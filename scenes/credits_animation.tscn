@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5alv21b13stc"]
+
+[ext_resource type="Texture2D" uid="uid://n7uo32xgqhd3" path="res://assets/final_animation.png" id="1_5hf3i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mut7"]
+atlas = ExtResource("1_5hf3i")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5ndm"]
+atlas = ExtResource("1_5hf3i")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqq7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mut7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5ndm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="credits_animation" type="Node2D"]
+scale = Vector2(8, 8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bqq7g")
+autoplay = "default"
+frame_progress = 0.46408
