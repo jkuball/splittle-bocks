@@ -3,10 +3,6 @@
 
 * TODO [#A] level polish                                       :@gamedev:polish:
 
-* TODO [#A] credits?                                      :@gamedev:art:feature:
-
-** TODO different color slime                             :@gamedev:art:feature:
-
 * TODO [#A] brauchen wir einen namen für unser team?!
 
   Ideen:
@@ -14,28 +10,13 @@
 
 ** TODO itch account machen
 
-* DONE [#A] brauchen wir einen namen für das spiel?!
-  CLOSED: [2024-08-18 So 16:06]
-
-  Ideen:
-  - Splittle Bocks <- wirds wohl
-  - Splittle Slime
-  - Splime
-  - Build to Scale
-  - Slime to Scale
-  - A Slime's Birthday Party
-  - Slimes & Bockses
-  - Bockes Rocks
-
 * TODO [#B] ambient graphics
 
-* TODO [#B] finetune parallax
-
-* TODO [#B] make sure you cant finish the level on a specific scale
-
-* TODO [#B] Musik                                               :@gamedev:audio:
+* TODO [#B] musik                                               :@gamedev:audio:
 
 * TODO [#B] lava                                          :@gamedev:feature:art:
+
+* TODO [#C] make sure you cant finish the level on a specific scale
 
 * TODO [#C] title screen                                  :@gamedev:feature:art:
 

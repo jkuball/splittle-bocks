@@ -6,6 +6,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_r6h3t"]
 font_size = 45
 font_color = Color(1, 0, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yb6gj"]
 
@@ -20,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "You Died!
-press R to restart"
+Press 'r' to restart"
 label_settings = SubResource("LabelSettings_r6h3t")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -79,4 +79,3 @@ sprite_frames = SubResource("SpriteFrames_gk87p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_q5y0p")
-disabled = true

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgf6pjrlih0db"]
+[gd_scene load_steps=2 format=3 uid="uid://bidu5ipsm67hu"]
 
 [ext_resource type="AudioStream" uid="uid://bj07xa3gq4yyg" path="res://assets/sounds/SLOWEST-TEMPO2019-12-11_-_Retro_Platforming_-_David_Fesliyan.mp3" id="1_fhjtd"]
 
 [node name="background_music" type="AudioStreamPlayer"]
 stream = ExtResource("1_fhjtd")
-volume_db = -10.0
+volume_db = -20.0
 autoplay = true

@@ -17,4 +17,6 @@ func _on_player_end(toggle: bool) -> void:
 
 func _on_bocks_count_change(bockses: int) -> void:
 	#print_debug("Das Ende naht!")
+	$HBoxContainer/bocks_count.visible = bockses != 0
+	$HBoxContainer/TextureRect.visible = bockses != 0
 	$HBoxContainer/bocks_count.text = str(bockses)

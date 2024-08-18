@@ -93,4 +93,41 @@
   :ARCHIVE_CATEGORY: todo
   :ARCHIVE_TODO: TODO
   :END:
+* DONE [#A] credits?                                      :@gamedev:art:feature:
+  CLOSED: [2024-08-18 So 17:33]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2024-08-18 So 17:33
+  :ARCHIVE_FILE: /home/jkuball/Git/splittle-bocks/todo.org
+  :ARCHIVE_CATEGORY: todo
+  :ARCHIVE_TODO: TODO
+  :END:
+
+** DONE different color slime                             :@gamedev:art:feature:
+   CLOSED: [2024-08-18 So 17:33]
+* DONE [#A] brauchen wir einen namen für das spiel?!
+  CLOSED: [2024-08-18 So 16:06]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2024-08-18 So 17:33
+  :ARCHIVE_FILE: /home/jkuball/Git/splittle-bocks/todo.org
+  :ARCHIVE_CATEGORY: todo
+  :ARCHIVE_TODO: TODO
+  :END:
+
+  Ideen:
+  - Splittle Bocks <- wirds wohl
+  - Splittle Slime
+  - Splime
+  - Build to Scale
+  - Slime to Scale
+  - A Slime's Birthday Party
+  - Slimes & Bockses
+  - Bockes Rocks
+* DONE [#B] finetune parallax
+  CLOSED: [2024-08-18 So 17:34]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2024-08-18 So 17:34
+  :ARCHIVE_FILE: /home/jkuball/Git/splittle-bocks/todo.org
+  :ARCHIVE_CATEGORY: todo
+  :ARCHIVE_TODO: TODO
+  :END:
 
