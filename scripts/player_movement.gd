@@ -31,14 +31,18 @@ func _ready() -> void:
 
 func grow():
 	bocksScale *= 2
-	apply_scale(Vector2(2, 2))
-	splittle.emit(Vector2(.5, .5))
+
+	var tween = create_tween()
+	tween.tween_property(self, "scale", scale * 2, 0.1)
+	tween.tween_callback(func(): splittle.emit(Vector2(.5, .5)))
 
 
 func shrink():
 	bocksScale /= 2
-	apply_scale(Vector2(.5, .5))
-	splittle.emit(Vector2(2, 2))
+
+	var tween = create_tween()
+	tween.tween_property(self, "scale", scale / 2, 0.1)
+	tween.tween_callback(func(): splittle.emit(Vector2(2, 2)))
 
 
 func _picked_up():
