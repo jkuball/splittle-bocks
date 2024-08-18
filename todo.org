@@ -12,10 +12,13 @@
   Ideen:
   - JF Entertainment
 
-* TODO [#A] brauchen wir einen namen für das spiel?!
+** TODO itch account machen
+
+* DONE [#A] brauchen wir einen namen für das spiel?!
+  CLOSED: [2024-08-18 So 16:06]
 
   Ideen:
-  - Splittle Bocks
+  - Splittle Bocks <- wirds wohl
   - Splittle Slime
   - Splime
   - Build to Scale
@@ -50,6 +53,8 @@
 
 * TODO [#A] final release: splittle bocks
   DEADLINE: <2024-08-18 So>
+
+** use shared itch account
 
 ** make sure you cant drop of the levels!
 

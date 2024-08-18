@@ -122,7 +122,8 @@ one_shot = true
 explosiveness = 1.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(2.34375, 2.34375)
+position = Vector2(0, 7)
+scale = Vector2(1.96875, 2.125)
 color = Color(0, 0.670588, 0, 1)
 texture = SubResource("GradientTexture2D_f6g3u")
 
