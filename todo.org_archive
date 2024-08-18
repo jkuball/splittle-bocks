@@ -1,0 +1,37 @@
+* DONE darstellung, wie viele boxen man gerade verschluckt hat :@gamedev:art:ui:
+  CLOSED: [2024-08-18 So 12:35]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2024-08-18 So 12:35
+  :ARCHIVE_FILE: /home/jkuball/Git/splittle-bocks/todo.org
+  :ARCHIVE_CATEGORY: todo
+  :ARCHIVE_TODO: TODO
+  :END:
+* DONE player speed after spawning a bocks                        :@gamedev:bug:
+  CLOSED: [2024-08-18 So 12:35]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2024-08-18 So 12:35
+  :ARCHIVE_FILE: /home/jkuball/Git/splittle-bocks/todo.org
+  :ARCHIVE_CATEGORY: todo
+  :ARCHIVE_TODO: TODO
+  :END:
+
+  wenn man eine box frisch gespawnt hat bewegt man sich so lange langsam bis sie despawnt ist
+* DONE was ist ein hindernis dafür??
+  CLOSED: [2024-08-18 So 11:37]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2024-08-18 So 12:35
+  :ARCHIVE_FILE: /home/jkuball/Git/splittle-bocks/todo.org
+  :ARCHIVE_CATEGORY: todo
+  :ARCHIVE_TODO: TODO
+  :END:
+
+  ein abgrund!!!!
+* DONE pickups spawn auf selber skalierung wie ihre bocks war     :@gamedev:bug:
+  CLOSED: [2024-08-18 So 12:35]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2024-08-18 So 12:35
+  :ARCHIVE_FILE: /home/jkuball/Git/splittle-bocks/todo.org
+  :ARCHIVE_CATEGORY: todo
+  :ARCHIVE_TODO: TODO
+  :END:
+

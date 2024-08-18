@@ -11,24 +11,21 @@
 
 * TODO level polish                                                     :polish:
 
-* TODO darstellung, wie viele boxen man gerade verschluckt hat          :art:ui:
-
 * TODO vertikale mini tube für level 1                             :art:feature:
-
-* TODO player speed after spawning a bocks                                 :bug:
-
-  wenn man eine box frisch gespawnt hat bewegt man sich so lange langsam bis sie despawnt ist
 
 * TODO finish level animation                               :art:feature:polish:
 
 * TODO ein level indem man wachsen muss                            :art:feature:
 
-** DONE was ist ein hindernis dafür??
-   CLOSED: [2024-08-18 So 11:37]
-
-   ein abgrund!!!!
-
 * TODO lerp wachsen und nicht einfach nur "puff" machen
+
+* TODO goals
+
+** TODO scale all goals
+
+** TODO make sure you cant finish the level on a specific scale
+
+* TODO laufanimation                                                       :art:
 
 * TODO restart level auch wenn wir leben (einfach platzen)
 
@@ -46,3 +43,4 @@
 
 * TODO final release: splittle bocks
   DEADLINE: <2024-08-18 So>
+

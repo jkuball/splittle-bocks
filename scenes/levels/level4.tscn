@@ -19,7 +19,7 @@ player = NodePath("../Player")
 [node name="Player" parent="." node_paths=PackedStringArray("spawn_target") instance=ExtResource("2_gtv0c")]
 position = Vector2(184, 455)
 spawn_target = NodePath("..")
-number_of_available_boxes = 2
+number_of_available_boxes = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)

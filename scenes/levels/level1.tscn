@@ -29,8 +29,9 @@ tile_map_data = PackedByteArray("AAD///7/AwAAAAAAAAD/////AwAAAAAAAAD//wcAAwAAAAA
 tile_set = ExtResource("3_0881b")
 
 [node name="Goal" parent="." instance=ExtResource("4_pcl5x")]
-position = Vector2(1472, 832)
+position = Vector2(1416, 864)
 rotation = -6.28319
+scale = Vector2(4, 4)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.493545, 0.493546, 0.493546, 1)
