@@ -113,7 +113,8 @@ func _physics_process(delta: float) -> void:
 				var bocks = make_bocks()
 
 				## Prototype bocks scaling ##
-				bocks.find_child("Collider").apply_scale(Vector2(bocksScale,bocksScale))
+				print_debug(Vector2(bocksScale,bocksScale))
+				bocks.apply_scale(Vector2(bocksScale,bocksScale))
 
 				var scale_factor = TEXTURE_PIXEL_SIZE * scale.x
 
