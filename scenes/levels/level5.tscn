@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=4 uid="uid://00ecoyuyqh1s"]
+[gd_scene load_steps=7 format=4 uid="uid://00ecoyuyqh1s"]
 
 [ext_resource type="Script" path="res://scripts/follow_player.gd" id="1_16dsp"]
+[ext_resource type="PackedScene" uid="uid://bxh7bw10ccw2p" path="res://scenes/background_parallax.tscn" id="1_wwaft"]
 [ext_resource type="PackedScene" uid="uid://c2wkhfsiwtuvv" path="res://scenes/player.tscn" id="2_tjba1"]
 [ext_resource type="TileSet" uid="uid://buf3uaa5v4x1x" path="res://assets/tile_set_full.tres" id="3_twpc5"]
 [ext_resource type="PackedScene" uid="uid://cu4gu0acf6dp1" path="res://scenes/goal.tscn" id="4_7g2h4"]
 [ext_resource type="PackedScene" uid="uid://bvow2qdtaojla" path="res://scenes/pickup.tscn" id="5_kks45"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="BackgroundParallax" parent="." instance=ExtResource("1_wwaft")]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(964, 343)
