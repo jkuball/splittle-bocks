@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://dspqusrf7t4np"]
 
 [ext_resource type="PackedScene" uid="uid://bxh7bw10ccw2p" path="res://scenes/background_parallax.tscn" id="1_jilyt"]
-[ext_resource type="PackedScene" path="res://scenes/credits_animation.tscn" id="3_he7ma"]
+[ext_resource type="PackedScene" uid="uid://c5alv21b13stc" path="res://scenes/credits_animation.tscn" id="3_he7ma"]
 [ext_resource type="TileSet" uid="uid://buf3uaa5v4x1x" path="res://assets/tile_set_full.tres" id="3_ic11l"]
 
 [sub_resource type="Gradient" id="Gradient_oj1it"]

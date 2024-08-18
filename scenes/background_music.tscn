@@ -6,3 +6,4 @@
 stream = ExtResource("1_fhjtd")
 volume_db = -20.0
 autoplay = true
+parameters/looping = true
