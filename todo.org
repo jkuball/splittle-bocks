@@ -30,8 +30,6 @@
 
 * TODO [#B] make sure you cant finish the level on a specific scale
 
-* TODO [#B] lerp wachsen und nicht einfach nur "puff" machen
-
 * TODO [#B] Musik                                               :@gamedev:audio:
 
 * TODO [#B] lava                                          :@gamedev:feature:art:
