@@ -91,19 +91,19 @@ offset_left = 957.0
 offset_top = -716.0
 offset_right = 1852.0
 offset_bottom = 33.0
-text = "Made for
-GMTK 2024
-GameJam"
+text = "Thanks for Playing!
+Made for
+GMTK GameJam 2024"
 label_settings = SubResource("LabelSettings_awfh8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LabelBackground" type="Label" parent="CanvasLayer"]
-offset_left = 1785.0
-offset_top = -658.0
-offset_right = 2680.0
-offset_bottom = 91.0
-text = "Parallax Background
+offset_left = 1817.0
+offset_top = -578.0
+offset_right = 2712.0
+offset_bottom = 171.0
+text = "Parallax Background Art
 @seetyaji
 CC BY 4.0"
 label_settings = SubResource("LabelSettings_awfh8")
@@ -132,10 +132,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label Bottom Left" type="Label" parent="CanvasLayer"]
-offset_left = 32.0
-offset_top = 322.0
-offset_right = 927.0
-offset_bottom = 1071.0
+offset_left = 40.0
+offset_top = 346.0
+offset_right = 935.0
+offset_bottom = 1095.0
 text = "Playtesting
 EberoniPepperoni"
 label_settings = SubResource("LabelSettings_awfh8")
@@ -143,11 +143,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label Top Right" type="Label" parent="CanvasLayer"]
-offset_left = -1.0
-offset_top = -648.0
-offset_right = 894.0
-offset_bottom = 101.0
-text = "Tanks for Playing!"
+offset_left = 58.0
+offset_top = -608.0
+offset_right = 953.0
+offset_bottom = 141.0
+text = "Background Music
+fesliyanstudios.com"
 label_settings = SubResource("LabelSettings_awfh8")
 horizontal_alignment = 1
 vertical_alignment = 1
